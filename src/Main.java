@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         int day = 0;
-        int miesiac = 0;
+        int month = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("podaj dwie liczby oddzielone przecinkiem(dzień, miesiąc):");
         String input = scanner.nextLine();
@@ -13,13 +13,13 @@ public class Main {
         if (table.length == 2) {
             for (int i = 0; i < table.length; i++) {
                 day = Integer.parseInt(table[0]);
-                miesiac = Integer.parseInt(table[1]);
+                month = Integer.parseInt(table[1]);
 
             }
         } else {
             System.out.println("Error!. podaj dokładnie dwie liczby oddzielone przecinkiem!");
         }
-        if (miesiac > 12) {
+        if (month > 12) {
             System.out.println("Podałeś nieprawidłową liczbę miesięcy");
         } else if (day > 31) {
             System.out.println("Podano nieprawidłową liczbę dni ");
@@ -107,73 +107,36 @@ public class Main {
             }
 
 
-            String m = "false";
-            switch (miesiac) {
-                case 1:
-                    m = "Styczeń";
-                    break;
-                case 2:
-                    if (day <= 28) {
-                        m = "Luty";
-                    } else {
-                        System.out.println("Luty ma tylko 28 dni");
-                        break;
-                    }
-                    break;
-                case 3:
-                    m = "Marzec";
-                    break;
-                case 4:
-                    if (day <= 30) {
-                        m = "Kwiecień";
-                    } else {
-                        System.out.println("Kwiecień ma tylko 30 dni!");
-                        break;
-                    }
-                    break;
-                case 5:
-                    m = "Maj";
-                    break;
-                case 6:
-                    if (day <= 30) {
-                        m = "Czerwiec";
-                    } else {
-                        System.out.println("Czerwiec ma tylko 30 dni");
-                        break;
-                    }
-                    break;
-                case 7:
-                    m = "Lipiec";
-                    break;
-                case 8:
-                    m = "Sierpień";
-                    break;
-                case 9:
-                    if (day <= 30) {
-                        m = "Wrzesień";
-                    } else {
-                        System.out.println("Wrzesień ma tylko 30 dni ");
-                        break;
-                    }
-                    break;
-                case 10:
-                    m = "Październik";
-                    break;
-                case 11:
-                    if (day <= 30) {
-                        m = "Listopad";
-                    } else {
-                        System.out.println("Listopad ma tylko 30 dni");
-                        break;
-                    }
-                    break;
-                case 12:
-                    m = "Grudzień";
-                    break;
+            String m;
+            if(month == 1){
+                m="Styczeń";
+            }else if(month == 2){
+                m = "Luty";
+            }else if(month == 3){
+                m = "Marzec";
+            }else if (month == 4){
+                m="Kwiecień";
+            }else if(month == 5){
+                m= "Maj";
+            }else if(month == 6){
+                m = "Czerwiec";
+            }else if(month == 7){
+                m = "Lipiec";
+            }else if(month == 8){
+                m = "Sierpień";
+            }else if(month == 9){
+                m = "Wrzesień";
+            }else if(month == 10){
+                m = "Październik";
+            }else if(month == 11){
+                m = "Listopad";
+            }else if(month == 12){
+                m = "Grudzień";
+            }else{
+                m= null;
             }
 
-
-            if (m == "false") {
+            if ((month == 2 && day > 28) || (month==4 && day> 30) || (month == 6 && day > 30) || (month == 9 && day > 30) || (month == 11 && day > 30)  ) {
                 System.out.println("podano za dużo dni!");
             } else {
                 System.out.println("W miesiącu: " + m + " dzień nr:" + day + " to: " + d);
